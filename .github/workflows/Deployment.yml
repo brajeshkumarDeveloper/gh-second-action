@@ -81,8 +81,10 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
 
-      - name: Run tests
-        run: pytest
+      - name: Run pytest
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          pytest
 
   deploy:
     runs-on: ubuntu-latest
